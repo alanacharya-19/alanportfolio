@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-accent: #6C63FF;
+  --color-accent-light: #B9B4FF;
+  --color-accent-glow: rgba(108, 99, 255, 0.15);
+  --color-heading: #111827;
+  --color-body: #6B7280;
+  --color-card-shadow: rgba(0, 0, 0, 0.04);
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-display-alt: "Sora", sans-serif;
+  --font-name: "Fraunces", serif;
+  --font-grotesk: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-script: "Dancing Script", cursive;
+  --font-signature: "Caveat", cursive;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --sidebar-bg: rgba(255, 255, 255, 0.75);
+  --sidebar-border: rgba(0, 0, 0, 0.04);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --hover-bg: rgba(108, 99, 255, 0.06);
+  --input-bg: #f9fafb;
+  --section-alt: #f8f9ff;
+}
+
+.dark {
+  --background: #0a0a0f;
+  --foreground: #f1f1f6;
+  --sidebar-bg: rgba(15, 15, 25, 0.85);
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(15, 15, 25, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --hover-bg: rgba(108, 99, 255, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --section-alt: rgba(108, 99, 255, 0.03);
+}
+
+.dark .text-heading { color: #f1f1f6; }
+.dark .text-body { color: #9ca3af; }
+
+body {
+  background: var(--background);
+  color: var(--body);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+@utility card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+}
+
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+@utility gradient-accent {
+  background: linear-gradient(135deg, #6C63FF, #B9B4FF);
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, #6C63FF, #8B83FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(108, 99, 255, 0.15);
+    border-radius: 3px;
+  }
+  ::selection {
+    background: rgba(108, 99, 255, 0.15);
+    color: #111827;
+  }
+  .dark ::selection {
+    color: #f1f1f6;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 99, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.2); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.underline-scribble {
+  text-decoration: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='16' viewBox='0 0 200 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 12 Q30 2 50 10 T90 8 T130 12 T170 6 T196 10' stroke='%236C63FF' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.6'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom -2px;
+  background-size: 100px 8px;
+  padding-bottom: 4px;
+}
