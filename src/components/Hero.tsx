@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Sparkles, Star, Zap } from "lucide-react";
 import { personalInfo } from "@/lib/data";
+import alanImg from "@/assets/alan.png";
 
 export default function Hero() {
   return (
@@ -79,7 +80,7 @@ export default function Hero() {
                   />
                   <div className="relative w-full h-full rounded-full overflow-hidden">
                     <img
-                      src="/alan.png"
+                      src={alanImg}
                       alt={personalInfo.name}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: "50% 30%" }}
