@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Sparkles, Star, Zap } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import alanImg from "@/assets/alan.png";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 export default function Hero() {
+  const isMobile = useIsMobile();
   return (
     <section id="hero" className="min-h-screen pt-12 sm:pt-16 md:pt-24 pb-14 md:pb-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -61,23 +63,25 @@ export default function Hero() {
                   transition={{ duration: 5, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
                   className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 mx-auto"
                 >
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      borderRadius: [
-                        "50% 50% 50% 50%",
-                        "42% 58% 62% 38%",
-                        "56% 44% 38% 62%",
-                        "48% 52% 58% 42%",
-                        "60% 40% 48% 52%",
-                        "38% 62% 54% 46%",
-                        "52% 48% 42% 58%",
-                        "50% 50% 50% 50%",
-                      ],
-                    }}
-                    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -inset-5 sm:-inset-7 border-[4px] border-dotted border-accent/50 dark:border-accent/40 pointer-events-none"
-                  />
+                  {!isMobile && (
+                    <motion.div
+                      animate={{
+                        rotate: 360,
+                        borderRadius: [
+                          "50% 50% 50% 50%",
+                          "42% 58% 62% 38%",
+                          "56% 44% 38% 62%",
+                          "48% 52% 58% 42%",
+                          "60% 40% 48% 52%",
+                          "38% 62% 54% 46%",
+                          "52% 48% 42% 58%",
+                          "50% 50% 50% 50%",
+                        ],
+                      }}
+                      transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -inset-5 sm:-inset-7 border-[4px] border-dotted border-accent/50 dark:border-accent/40 pointer-events-none"
+                    />
+                  )}
                   <div className="relative w-full h-full rounded-full overflow-hidden">
                     <img
                       src={alanImg}
@@ -87,16 +91,18 @@ export default function Hero() {
                     />
                   </div>
                   <div className="absolute inset-0 rounded-full shadow-[0_0_0_4px_rgba(108,99,255,0.35),0_0_0_6px_rgba(168,85,247,0.2),0_0_30px_rgba(108,99,255,0.2)] pointer-events-none" />
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 rounded-full pointer-events-none"
-                    style={{
-                      background: "conic-gradient(from 0deg, transparent 25%, rgba(108,99,255,0.5) 40%, rgba(168,85,247,0.5) 50%, rgba(236,72,153,0.3) 60%, transparent 75%)",
-                      mask: "radial-gradient(transparent 65%, black 66%, black 71%, transparent 72%)",
-                      WebkitMask: "radial-gradient(transparent 65%, black 66%, black 71%, transparent 72%)",
-                    }}
-                  />
+                  {!isMobile && (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 rounded-full pointer-events-none"
+                      style={{
+                        background: "conic-gradient(from 0deg, transparent 25%, rgba(108,99,255,0.5) 40%, rgba(168,85,247,0.5) 50%, rgba(236,72,153,0.3) 60%, transparent 75%)",
+                        mask: "radial-gradient(transparent 65%, black 66%, black 71%, transparent 72%)",
+                        WebkitMask: "radial-gradient(transparent 65%, black 66%, black 71%, transparent 72%)",
+                      }}
+                    />
+                  )}
                   <motion.div
                     animate={{ opacity: [0.3, 0.8, 0.3] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
