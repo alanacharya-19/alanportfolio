@@ -109,15 +109,22 @@ export const experience = [
   {
     id: 1,
     period: "2026 — Present",
-    role: "Learning Full Stack Development",
+    role: "Building Full Stack & Mobile Apps",
     company: "Self-Taught Journey",
-    description: "Deep diving into React, Next.js, Node.js, and React Native. Building real-world projects to master full stack and mobile development.",
+    description: "Shipping real-world projects like CookMate (AI recipe app), Fire Ai (chat app), and AlanCart (e-commerce app). Working across the stack — React, Next.js, Node.js, MongoDB, React Native, and Expo.",
   },
   {
     id: 2,
+    period: "2026",
+    role: "Mobile & Full Stack Web Development",
+    company: "Project Phase",
+    description: "Built CineVerse (movie streaming app), Chattify (messaging app), and an Instagram Clone with MERN stack. Deepened skills in TypeScript, Firebase, Socket.io, and React Native with Expo.",
+  },
+  {
+    id: 3,
     period: "2025 — 2026",
     role: "Started Coding",
     company: "The Beginning",
-    description: "Fell in love with programming. Started with HTML, CSS, and JavaScript, then quickly moved to React and modern frameworks.",
+    description: "Fell in love with programming. Started with HTML, CSS, and JavaScript, built foundational projects, then quickly moved to React, Tailwind CSS, and modern frameworks.",
   },
 ];
