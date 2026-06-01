@@ -104,29 +104,38 @@ export default function Sidebar() {
 
           <AnimatePresence>
             {mobileOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                transition={{ duration: 0.15 }}
-                className="absolute top-full left-0 right-0 mt-2 md:hidden"
-              >
-                <div className="glass rounded-2xl p-2 shadow-lg shadow-black/5">
-                  {navItems.map(({ href, label }) => (
-                    <button
-                      key={href}
-                      onClick={() => handleNav(href)}
-                      className={`w-full px-4 py-2.5 rounded-xl text-sm font-medium font-mono tracking-wide text-left transition-all duration-300 cursor-pointer ${
-                        active === href
-                          ? "bg-accent/10 text-accent"
-                          : "text-body hover:text-heading hover:bg-gray-50 dark:hover:bg-white/5"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 -z-10 bg-black/20 dark:bg-black/40 backdrop-blur-sm"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full left-0 right-0 mt-2 md:hidden"
+                >
+                  <div className="rounded-2xl p-2 shadow-lg shadow-black/5 bg-white dark:bg-[#0f0f19] border border-gray-200 dark:border-white/10">
+                    {navItems.map(({ href, label }) => (
+                      <button
+                        key={href}
+                        onClick={() => handleNav(href)}
+                        className={`w-full px-4 py-2.5 rounded-xl text-sm font-medium font-mono tracking-wide text-left transition-all duration-300 cursor-pointer ${
+                          active === href
+                            ? "bg-accent/10 text-accent"
+                            : "text-body hover:text-heading hover:bg-gray-50 dark:hover:bg-white/5"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </div>

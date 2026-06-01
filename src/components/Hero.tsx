@@ -7,9 +7,9 @@ import { useIsMobile } from "@/lib/useIsMobile";
 export default function Hero() {
   const isMobile = useIsMobile();
   return (
-    <section id="hero" className="min-h-screen pt-12 sm:pt-16 md:pt-24 pb-14 md:pb-20 relative overflow-hidden">
+    <section id="hero" className="min-h-[80vh] md:min-h-screen pt-12 sm:pt-16 md:pt-24 pb-10 md:pb-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
