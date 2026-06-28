@@ -118,10 +118,10 @@ export default function Footer() {
               <p className="text-sm font-medium font-grotesk text-body/50">
                 {personalInfo.location}
               </p>
-              <p className="text-xs font-mono text-green-500/70 flex items-center gap-1.5">
+              <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-green-500/70 flex items-center gap-1.5 hover:text-green-400 transition-colors">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-sm shadow-green-500/30 animate-pulse" />
                 Available for projects
-              </p>
+              </a>
             </div>
           </div>
         </div>

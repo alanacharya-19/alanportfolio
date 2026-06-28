@@ -103,6 +103,15 @@ export const projects = [
     gradient: "from-cyan-500 to-blue-600",
     link: "https://github.com/alanacharya-19/Fire-AI",
   },
+  {
+    id: 8,
+    title: "StayEase",
+    image: "https://raw.githubusercontent.com/alanacharya-19/StayEase/main/public/images/image.png",
+    description: "A modern hotel booking web application that allows users to search for hotels, view detailed room information, book rooms online, manage reservations, and leave reviews. The website features a responsive UI, secure authentication, and an intuitive booking experience.",
+    tags: ["React", "Clerk", "Makcorps API", "TypeScript"],
+    gradient: "from-cyan-500 to-blue-600",
+    link: "https://github.com/alanacharya-19/StayEase",
+  },
 ];
 
 export const experience = [

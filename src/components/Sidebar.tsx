@@ -15,7 +15,6 @@ export default function Sidebar() {
   const { setTheme, resolvedTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("#hero");
-  const [progress, setProgress] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
@@ -24,16 +23,6 @@ export default function Sidebar() {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const handleNav = (href: string) => {
     setActive(href);
@@ -50,11 +39,7 @@ export default function Sidebar() {
         className="fixed top-4 sm:top-6 left-4 right-4 z-50 flex justify-center"
       >
         <div className="w-full max-w-2xl mx-auto relative">
-          <div className="glass rounded-2xl px-4 sm:px-6 h-14 flex items-center justify-between shadow-lg shadow-black/5 relative overflow-hidden">
-            <motion.div
-              className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-accent to-accent-light"
-              style={{ width: `${progress * 100}%` }}
-            />
+          <div className="glass rounded-2xl px-4 sm:px-6 h-14 flex items-center justify-between shadow-lg shadow-black/5">
             <a
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNav("#hero"); }}
