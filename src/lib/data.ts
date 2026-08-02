@@ -20,9 +20,9 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: "1", label: "Year of Experience", icon: "Sparkles" },
-  { value: "17", label: "Projects", icon: "Code2" },
-  { value: "10", label: "Technologies", icon: "Zap" },
+  { value: "1+", label: "Year of Experience", icon: "Sparkles" },
+  { value: "20+", label: "Projects", icon: "Code2" },
+  { value: "10+", label: "Technologies", icon: "Zap" },
   { value: "∞", label: "Learning Everyday", icon: "Smile" },
 ];
 

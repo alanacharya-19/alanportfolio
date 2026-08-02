@@ -27,7 +27,9 @@ function useInViewOnce(ref: React.RefObject<Element | null>) {
 function AnimatedValue({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInViewOnce(ref);
-  const num = parseInt(value);
+  const match = value.match(/^([0-9.]+)(.*)$/);
+  const num = match ? parseFloat(match[1]) : NaN;
+  const suffix = match ? match[2] : "";
   const isNumeric = !isNaN(num);
   const [count, setCount] = useState(0);
 
@@ -53,7 +55,7 @@ function AnimatedValue({ value }: { value: string }) {
 
   return (
     <span ref={ref} className="text-xl sm:text-2xl md:text-3xl font-bold font-display-alt text-heading tracking-tight">
-      {isNumeric ? count : value}
+      {isNumeric ? `${count}${suffix}` : value}
     </span>
   );
 }
